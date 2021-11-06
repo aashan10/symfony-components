@@ -1,0 +1,23 @@
+{
+  "name": "aashan/workflow",
+  "description": "Testing out different symfony components",
+  "authors": [
+    {
+      "name": "Aashan Ghimire",
+      "email": "ashanghimire10@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/workflow": "*",
+    "symfony/console": "*",
+    "doctrine/collections": "^1.6"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aashan\\Workflow\\": "src"
+    }
+  }
+}
