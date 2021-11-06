@@ -9,6 +9,7 @@
     }
   ],
   "require": {
+    "php" : "^8.0",
     "symfony/workflow": "*",
     "symfony/console": "*",
     "doctrine/collections": "^1.6"
