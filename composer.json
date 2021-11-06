@@ -1,6 +1,7 @@
 {
   "name": "aashan/workflow",
   "description": "Testing out different symfony components",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Aashan Ghimire",
