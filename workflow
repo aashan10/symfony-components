@@ -8,6 +8,7 @@ use Aashan\Workflow\Commands\Order\OrderCreateCommand;
 use Aashan\Workflow\Commands\Order\OrderDeleteCommand;
 use Aashan\Workflow\Commands\Order\OrderEditCommand;
 use Aashan\Workflow\Commands\Order\OrderListCommand;
+use Aashan\Workflow\Commands\Order\OrderViewCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application('Workflow Example', '1.0.1');
@@ -16,6 +17,7 @@ $application->addCommands([new OrderListCommand()]);
 $application->addCommands([new OrderEditCommand()]);
 $application->addCommands([new OrderDeleteCommand()]);
 $application->addCommands([new OrderCreateCommand()]);
+$application->addCommands([new OrderViewCommand()]);
 
 try {
     $application->run();
