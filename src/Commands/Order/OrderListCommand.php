@@ -2,7 +2,9 @@
 
 namespace Aashan\Workflow\Commands\Order;
 
+use Aashan\Workflow\Collections\Order\OrderCollection;
 use Aashan\Workflow\Helpers\StorageHelper;
+use Aashan\Workflow\Models\Order;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -26,7 +28,7 @@ class OrderListCommand extends Command
         $table->setHeaders(['SN', 'Order Number', 'SKU', 'Quantity', 'Customer Name', 'Billing Address', 'Shipping Address', 'Status', 'Created At']);
 
         $rows = [];
-        foreach ((new StorageHelper())->getOrderCollection() as $index => $order) {
+        foreach ((new StorageHelper())->getCollection('orders', Order::class, OrderCollection::class) as $index => $order) {
             $rows[$index] = [
                 'id' => $index + 1,
                 'order_id' => $order->getId(),
