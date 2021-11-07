@@ -43,7 +43,7 @@ abstract class AbstractModel extends DataModel
     public static function find(string $id): bool|DataModel
     {
         $storage = new StorageHelper();
-        $collection = $storage->getCollection(static::$collectionName, static::$collectionClass);
+        $collection = $storage->getCollection(static::$collectionName, static::class, static::$collectionClass);
         return $collection->find($id);
     }
 
@@ -52,7 +52,7 @@ abstract class AbstractModel extends DataModel
         $storageHelper = new StorageHelper();
         $collection = $storageHelper->getCollection(static::$collectionName, static::class);
         $collection = $collection->filter(function(DataModel $model) {
-           return $model->getData(static::$idField) !== $this->getData(static::$idField);
+           return (string)$model->getData(static::$idField) !== (string)$this->getData(static::$idField);
         });
         $collection->add($this);
 

@@ -12,7 +12,7 @@ abstract class AbstractCollection extends ArrayCollection
     public function find(string $id): DataModel|false
     {
         return $this->filter(function(object $dataObject) use($id) {
-            return (string) $dataObject->getData(static::$primaryField) === (string) $id;
+            return (string) $dataObject->getData(static::$primaryField) === $id;
         })->first();
     }
 }
