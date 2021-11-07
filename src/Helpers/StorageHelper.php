@@ -24,12 +24,11 @@ class StorageHelper
         }
     }
 
-    public function getCollection(string $key, string $className = DataModel::class): Collection
+    public function getCollection(string $key, string $className = DataModel::class, string $collectionClass = Collection::class): AbstractCollection
     {
-        $collection = new Collection();
+        $collection = new $collectionClass();
         foreach ($this->getData($key) as $data) {
-            $dataObject = new $className($data);
-            $collection->add($dataObject);
+            $collection->add($className::create($data));
         }
         return $collection;
     }
